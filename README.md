@@ -24,11 +24,34 @@ The API accepts the following query parameters:
 
 ## Response
 
-The API returns a JSON response with the following structure:
 
+
+The API returns a JSON response with the following structure:
 ```json
 {
     "temperature": <Integer>,   // Current temperature in Celsius (simulated)
     "conditions": "<String>",    // Current weather conditions (simulated, e.g., "Clear", "Rain", "Snow", "Partly Cloudy", "Sunny")
     "windSpeed": <Integer>       // Current wind speed (simulated unit)
 }
+```
+
+Setup and Deployment (for Salesforce Environment):
+
+1.Log in to your Salesforce Developer Edition or Sandbox environment.
+
+2.Navigate to Setup (gear icon) > Quick Find > Apex Classes.
+
+3. Click New and enter the name UDOTWeatherAPI.
+
+4. Copy and paste the UDOTWeatherAPI.cls code (provided separately) into the editor.
+
+5.Click Save.
+
+Testing with Postman:
+
+A Postman collection (UDOT Weather API Test.postman_collection.json) is included for easy testing of the API. Follow the guide below to import and use the collection.
+
+Disclaimer:
+
+This API provides simulated weather data for demonstration purposes. In a real-world application, integration with a reliable third-party weather API would be necessary.
+
