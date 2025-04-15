@@ -1,0 +1,55 @@
+@RestResource(urlMapping='/UDOTWeather/*')
+global class UDOTWeatherAPI {
+
+    @HttpGet
+    global static String getCurrentWeather() {
+        RestRequest req = RestContext.request;
+        RestResponse res = RestContext.response;
+
+        String latitude = req.params.get('latitude');
+        String longitude = req.params.get('longitude');
+
+        // Basic validation for latitude and longitude
+        if (String.isBlank(latitude) || String.isBlank(longitude)) {
+            res.statusCode = 400;
+            return JSON.serialize('Error: Please provide latitude and longitude parameters.');
+        }
+
+        // Simulate fetching weather data based on location
+        WeatherData currentWeather = simulateWeatherData(latitude, longitude);
+
+        // Construct the JSON response
+        String jsonResponse = JSON.serialize(currentWeather);
+        res.mimeType = 'application/json';
+        return jsonResponse;
+    }
+
+    private static WeatherData simulateWeatherData(String latitude, String longitude) {
+        WeatherData data = new WeatherData();
+        Decimal lat = Decimal.valueOf(latitude);
+        Decimal lon = Decimal.valueOf(longitude);
+
+        // Simple logic to simulate different weather based on location
+        if (lat > 40.5 && lat < 41 && lon > -112 && lon < -111.5) { // Example: Salt Lake City area
+            data.temperature = 25;
+            data.conditions = 'Clear';
+            data.windSpeed = 5;
+        } else if (lat > 37 && lat < 38 && lon > -113 && lon < -112) { // Example: St. George area
+            data.temperature = 35;
+            data.conditions = 'Sunny';
+            data.windSpeed = 8;
+        } else { // Default weather
+            data.temperature = 20;
+            data.conditions = 'Partly Cloudy';
+            data.windSpeed = 3;
+        }
+        return data;
+    }
+
+    // Inner class to represent weather data
+    global class WeatherData {
+        global Integer temperature { get; set; }
+        global String conditions { get; set; }
+        global Integer windSpeed { get; set; }
+    }
+}
