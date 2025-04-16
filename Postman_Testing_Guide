@@ -1,0 +1,49 @@
+from textwrap import dedent
+
+guide_text = dedent("""
+🧪 UDOT Weather API – Postman Testing Guide
+
+This guide walks you through how to test the **UDOT Weather API** built in Salesforce using Postman. This API simulates current weather conditions based on latitude and longitude inputs, providing a demonstration-use endpoint useful for traffic, safety, and operational planning use cases.
+
+---
+
+🚀 Prerequisites
+
+- [ ] You have a Salesforce Developer Org or Sandbox with the `UDOTWeatherAPI.cls` class deployed.
+- [ ] Postman is installed on your machine.
+- [ ] You have a valid Salesforce **access token** and **instance URL**.
+
+---
+
+📥 Step 1: Import the Postman Collection
+
+1. Download the `UDOT Weather API Test.postman_collection.json` file.
+2. Open Postman.
+3. Click **Import** (top left).
+4. Choose **Upload Files**, select the downloaded `.json` file, and click **Import**.
+
+✅ A collection named "UDOT Weather API Test" will appear in your sidebar.
+
+---
+
+🌍 Step 2: Set Environment Variables
+
+Create a new environment in Postman and define the following variables:
+
+| Variable       | Example                                  |
+|----------------|-------------------------------------------|
+| `instance_url` | `https://yourInstance.salesforce.com`     |
+| `access_token` | `YOUR_ACCESS_TOKEN`                       |
+
+You can get these values from:
+- Salesforce CLI: `sfdx force:org:display -u your-alias`
+- Salesforce login session if you're using OAuth in Postman
+
+---
+
+🔄 Step 3: Use the “Get Current Weather” Request
+
+1. Open the **UDOT Weather API Test** collection.
+2. Select **Get Current Weather**.
+3. Confirm the URL looks like this:
+
