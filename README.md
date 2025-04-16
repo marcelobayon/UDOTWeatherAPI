@@ -51,6 +51,9 @@ Testing with Postman:
 
 A Postman collection (UDOT Weather API Test.postman_collection.json) is included for easy testing of the API. Follow the guide below to import and use the collection.
 
+Postman Collection: https://marcelobayon.postman.co/workspace/My-Workspace~9fd24488-3bac-447d-887d-a67f63c893c7/collection/44034836-6997fe43-dd9f-42bd-9125-234ffc0cac18
+
+
 Disclaimer:
 
 This API provides simulated weather data for demonstration purposes. In a real-world application, integration with a reliable third-party weather API would be necessary.
